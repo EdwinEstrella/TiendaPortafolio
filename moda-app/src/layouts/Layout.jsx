@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const Layout = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <div className="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display text-text-main dark:text-gray-100 selection:bg-primary selection:text-white overflow-x-hidden">
             {/* Header */}
@@ -9,7 +11,10 @@ const Layout = () => {
                 <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
                     {/* Logo & Mobile Menu */}
                     <div className="flex items-center gap-4">
-                        <button className="lg:hidden p-2 -ml-2 text-text-main dark:text-white hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors">
+                        <button
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="lg:hidden p-2 -ml-2 text-text-main dark:text-white hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors"
+                        >
                             <span className="material-symbols-outlined text-2xl">menu</span>
                         </button>
                         <Link to="/" className="flex items-center gap-2 group text-decoration-none">
@@ -50,6 +55,45 @@ const Layout = () => {
                         </Link>
                     </div>
                 </div>
+
+                {/* Mobile Menu Overlay */}
+                {isMenuOpen && (
+                    <div className="fixed inset-x-0 top-20 bottom-0 bg-background-light dark:bg-background-dark z-40 lg:hidden flex flex-col p-6 animate-fade-in">
+                        <nav className="flex flex-col gap-6 text-xl font-bold">
+                            <Link
+                                to="/products"
+                                className="border-b border-gray-100 dark:border-gray-800 pb-4 hover:text-primary transition-colors"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Colección
+                            </Link>
+                            <a
+                                href="#"
+                                className="border-b border-gray-100 dark:border-gray-800 pb-4 hover:text-primary transition-colors"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Novedades
+                            </a>
+                            <a
+                                href="#"
+                                className="border-b border-gray-100 dark:border-gray-800 pb-4 hover:text-primary transition-colors"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Ofertas
+                            </a>
+                        </nav>
+                        <div className="mt-auto">
+                            <Link
+                                to="/login"
+                                className="w-full bg-primary text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <span className="material-symbols-outlined">account_circle</span>
+                                Iniciar Sesión / Registrarse
+                            </Link>
+                        </div>
+                    </div>
+                )}
             </header>
 
             {/* Spacer for Fixed Header */}
