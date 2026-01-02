@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getProductById } from '../data/products';
+import { getProductById } from '../../data/products';
 
 const ProductDetails = () => {
     const { id } = useParams();

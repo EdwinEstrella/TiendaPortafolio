@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ProductCard from '../components/ProductCard';
-import { products } from '../data/products';
+import ProductCard from '../../components/ProductCard';
+import { products } from '../../data/products';
 
 const Products = () => {
     // Products data is now imported

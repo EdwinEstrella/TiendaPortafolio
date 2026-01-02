@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './layouts/Layout';
-import Home from './pages/Home';
+import Home from './pages/public/Home';
 import AdminLayout from './layouts/AdminLayout';
 import Dashboard from './pages/admin/Dashboard';
 import CreateProduct from './pages/admin/CreateProduct';
 import Orders from './pages/admin/Orders';
 import Customers from './pages/admin/Customers';
-import Login from './pages/Login';
+import Login from './pages/public/Login';
 
-import Products from './pages/Products';
+import Products from './pages/public/Products';
 
-import ProductDetails from './pages/ProductDetails';
-import Cart from './pages/Cart';
+import ProductDetails from './pages/public/ProductDetails';
+import Cart from './pages/public/Cart';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
