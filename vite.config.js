@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   preview: {
-    allowedHosts: ["webs-tienda-portafolio-5ectpg-2a9cd9-190-166-109-120.traefik.me"],
+    allowedHosts: 'all',
   },
 })
