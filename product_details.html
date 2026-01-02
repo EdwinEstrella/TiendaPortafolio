@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MODA - Oversized Wool Blazer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec13a4",
+                        "background-light": "#f8f6f7",
+                        "background-dark": "#22101c",
+                        "text-main": "#1b0d17",
+                        "text-muted": "#9a4c80",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const products = {
+                'coat': {
+                    title: 'Abrigo Lana Merino',
+                    price: '$129.00',
+                    image: 'images/products_coat.jpg',
+                    description: 'Abrigo oversized de lana merino en color beige natural. Corte minimalista con hombros caídos y solapas anchas. Perfecto para capas invernales.',
+                    ref: '12345678'
+                },
+                'bomber': {
+                    title: 'Chaqueta Bomber Seda',
+                    price: '$89.00',
+                    image: 'images/products_bomber.jpg',
+                    description: 'Chaqueta estilo bomber en seda rosa pastel. Acabados elásticos en puños y cintura. Un toque deportivo y elegante contemporáneo.',
+                    ref: '87654321'
+                },
+                'pants': {
+                    title: 'Pantalón Lino Recto',
+                    price: '$75.00',
+                    image: 'images/products_pants.jpg',
+                    description: 'Pantalón de lino puro en corte recto y cintura alta. Fresco, transpirable y esencial para un armario de verano sofisticado.',
+                    ref: '23456789'
+                },
+                'dress': {
+                    title: 'Vestido Midi Noche',
+                    price: '$145.00',
+                    image: 'images/products_dress.jpg',
+                    description: 'Vestido midi negro con estructura arquitectónica. Tejido de alta densidad que moldea la silueta con elegancia sobria.',
+                    ref: '98765432'
+                },
+                'shirt': {
+                    title: 'Camisa Abstracta',
+                    price: '$55.00',
+                    image: 'images/products_shirt.jpg',
+                    description: 'Camisa de corte relajado con estampado abstracto en tonos pastel. Tejido ligero de viscosa para una caída fluida.',
+                    ref: '34567890'
+                },
+                'top': {
+                    title: 'Top Punto Vibrante',
+                    price: '$42.00',
+                    image: 'images/products_top.jpg',
+                    description: 'Top de punto canalé en un vibrante color magenta. Cuello alto y ajuste ceñido para una silueta moderna y audaz.',
+                    ref: '09876543'
+                }
+            };
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id') || 'coat'; // Fallback to coat if no ID
+            const product = products[productId];
+
+            if (product) {
+                document.getElementById('product-title').textContent = product.title;
+                document.getElementById('product-price').textContent = product.price;
+                document.getElementById('product-image').src = product.image;
+                document.getElementById('product-image').alt = product.title;
+                document.getElementById('product-description').textContent = product.description;
+                document.getElementById('product-ref').textContent = `REF: ${product.ref}`;
+            }
+        });
+    </script>
+    <style>
+        /* Custom scrollbar hiding for cleaner look if needed */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Details summary marker customization */
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased selection:bg-primary selection:text-white flex flex-col min-h-screen">
+
+    <!-- Top Navigation Bar (Desktop) -->
+    <nav
+        class="hidden md:flex sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e5e5] dark:border-[#3a1d30]">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between w-full">
+            <!-- Left Side: Logo & Menu -->
+            <div class="flex items-center gap-12">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
+                    <div class="text-primary">
+                        <span class="material-symbols-outlined text-3xl">diamond</span>
+                    </div>
+                    <h1 class="text-2xl font-extrabold tracking-tight text-text-main dark:text-white">MODA</h1>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="flex items-center gap-8">
+                    <a class="text-sm font-semibold hover:text-primary transition-colors text-text-main dark:text-white"
+                        href="#">Novedades</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-text-main/80 dark:text-white/80"
+                        href="#">Hombre</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-text-main/80 dark:text-white/80"
+                        href="#">Mujer</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-text-main/80 dark:text-white/80"
+                        href="#">Accesorios</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-red-500"
+                        href="#">Rebajas</a>
+                </div>
+            </div>
+
+            <!-- Right Side: Search Bar & Icons -->
+            <div class="flex items-center gap-6">
+                <!-- Search Bar -->
+                <div
+                    class="hidden lg:flex items-center bg-gray-100 dark:bg-gray-800 rounded-full px-4 py-2 w-64 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+                    <span class="material-symbols-outlined text-text-muted text-[20px]">search</span>
+                    <input
+                        class="bg-transparent border-none text-sm text-text-main dark:text-white placeholder-text-muted focus:ring-0 w-full ml-2"
+                        placeholder="Buscar..." type="text" />
+                </div>
+
+                <!-- Icons (Cart & Profile only) -->
+                <div class="flex items-center gap-3">
+                    <button
+                        class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-[#1b0d17] dark:text-white">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        <span class="absolute top-2 right-1 flex h-2.5 w-2.5">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                        </span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center size-10 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-[#1b0d17] dark:text-white">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <!-- Mobile Header (Visible only on small screens) -->
+    <header
+        class="md:hidden sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e5e5] dark:border-[#3a1d30] px-6 h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
+            <div class="text-primary">
+                <span class="material-symbols-outlined text-3xl">diamond</span>
+            </div>
+            <h1 class="text-2xl font-extrabold tracking-tight text-text-main dark:text-white">MODA</h1>
+        </a>
+        <!-- Icons Mobile -->
+        <div class="flex items-center gap-3">
+            <button
+                class="flex items-center justify-center size-10 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-[#1b0d17] dark:text-white">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+            <button
+                class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-[#1b0d17] dark:text-white">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span class="absolute top-2 right-1 flex h-2.5 w-2.5">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                </span>
+            </button>
+            <button
+                class="flex items-center justify-center size-10 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-[#1b0d17] dark:text-white">
+                <span class="material-symbols-outlined">account_circle</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex-1 flex flex-col w-full max-w-[1400px] mx-auto">
+
+        <main class="w-full px-4 md:px-10 pb-20">
+            <!-- Breadcrumbs -->
+            <div class="py-6 flex items-center text-sm text-text-muted">
+                <a class="hover:text-primary transition-colors" href="index.html">Inicio</a>
+                <span class="mx-2 text-xs opacity-50">/</span>
+                <a class="hover:text-primary transition-colors" href="#">Hombre</a>
+                <span class="mx-2 text-xs opacity-50">/</span>
+                <a class="hover:text-primary transition-colors" href="#">Abrigos</a>
+                <span class="mx-2 text-xs opacity-50">/</span>
+                <span class="text-text-main dark:text-white font-medium">Blazers</span>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16">
+                <!-- Left Column: Image Gallery -->
+                <div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-6">
+                    <!-- Main big image -->
+                    <div
+                        class="w-full bg-[#f0f0f0] rounded-xl overflow-hidden aspect-[4/5] relative group cursor-zoom-in">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                            data-alt="Hombre vistiendo un blazer de lana color crema oversized de frente"
+                            style="background-image: url('images/detail_main.jpg');">
+                            <img id="product-image" src="images/detail_main.jpg" alt="Product Image"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div
+                            class="absolute bottom-4 left-4 bg-white/90 backdrop-blur text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider text-text-main shadow-sm">
+                            Nuevo
+                        </div>
+                    </div>
+                    <!-- Grid of secondary images -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="w-full bg-[#f0f0f0] rounded-xl overflow-hidden aspect-[3/4] group cursor-zoom-in">
+                            <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Detalle de la textura de lana del blazer y botones vintage"
+                                style="background-image: url('images/detail_texture.jpg');">
+                            </div>
+                        </div>
+                        <div class="w-full bg-[#f0f0f0] rounded-xl overflow-hidden aspect-[3/4] group cursor-zoom-in">
+                            <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Vista trasera del hombre vistiendo el blazer oversized caminando"
+                                style="background-image: url('images/detail_back.jpg');">
+                            </div>
+                        </div>
+                        <div
+                            class="w-full bg-[#f0f0f0] rounded-xl overflow-hidden aspect-[3/4] group cursor-zoom-in md:col-span-2">
+                            <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Blazer colgado en una percha de madera mostrando el interior forrado"
+                                style="background-image: url('images/detail_hanger.jpg');">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column: Product Details (Sticky) -->
+                <div class="lg:col-span-5 xl:col-span-4">
+                    <div class="sticky top-28 flex flex-col gap-8">
+                        <!-- Header Info -->
+                        <div class="space-y-4 border-b border-[#f3e7ef] pb-6">
+                            <div class="flex items-start justify-between">
+                                <h1 id="product-title"
+                                    class="text-3xl md:text-4xl font-extrabold tracking-tight text-text-main dark:text-white leading-[1.1]">
+                                    Oversized Wool Blazer
+                                </h1>
+                                <button
+                                    class="mt-1 p-2 rounded-full hover:bg-black/5 text-text-muted hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined">share</span>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span id="product-price" class="text-2xl font-medium text-primary">$120.00</span>
+                                <div class="flex items-center gap-1 text-sm font-medium">
+                                    <div class="flex text-yellow-400 text-[18px]">
+                                        <span class="material-symbols-outlined fill-current">star</span>
+                                        <span class="material-symbols-outlined fill-current">star</span>
+                                        <span class="material-symbols-outlined fill-current">star</span>
+                                        <span class="material-symbols-outlined fill-current">star</span>
+                                        <span class="material-symbols-outlined fill-current">star_half</span>
+                                    </div>
+                                    <span
+                                        class="text-text-muted underline decoration-1 underline-offset-4 cursor-pointer hover:text-text-main">(42
+                                        Reseñas)</span>
+                                </div>
+                            </div>
+                            <p id="product-description"
+                                class="text-text-main/80 dark:text-white/80 leading-relaxed font-light">
+                                Confeccionado por expertos con una mezcla de lana premium, este blazer oversized
+                                presenta
+                                una silueta relajada perfecta para combinar capas. Acabado con solapas de muesca y
+                                bolsillos
+                                funcionales.
+                            </p>
+                            <p id="product-ref" class="text-text-muted text-sm">REF: 83920192</p>
+                        </div>
+                        <!-- Selectors -->
+                        <div class="space-y-6">
+                            <!-- Color Selector -->
+                            <div class="space-y-3">
+                                <span class="text-sm font-bold text-text-main dark:text-white">Color: <span
+                                        class="font-normal text-text-muted">Crema Vintage</span></span>
+                                <div class="flex flex-wrap gap-3">
+                                    <button aria-label="Select Cream Color"
+                                        class="w-10 h-10 rounded-full bg-[#E8E6E1] ring-2 ring-offset-2 ring-primary ring-offset-background-light shadow-sm focus:outline-none"></button>
+                                    <button aria-label="Select Charcoal Color"
+                                        class="w-10 h-10 rounded-full bg-[#2C333A] hover:ring-2 hover:ring-offset-2 hover:ring-gray-300 ring-offset-background-light shadow-sm transition-all focus:outline-none"></button>
+                                    <button aria-label="Select Navy Color"
+                                        class="w-10 h-10 rounded-full bg-[#1A1A40] hover:ring-2 hover:ring-offset-2 hover:ring-gray-300 ring-offset-background-light shadow-sm transition-all focus:outline-none"></button>
+                                    <button aria-label="Select Taupe Color"
+                                        class="w-10 h-10 rounded-full bg-[#96826D] hover:ring-2 hover:ring-offset-2 hover:ring-gray-300 ring-offset-background-light shadow-sm transition-all focus:outline-none"></button>
+                                </div>
+                            </div>
+                            <!-- Size Selector -->
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-bold text-text-main dark:text-white">Talla</span>
+                                    <button
+                                        class="text-xs font-medium text-text-muted underline decoration-1 underline-offset-4 hover:text-primary transition-colors">Guía
+                                        de tallas</button>
+                                </div>
+                                <div class="grid grid-cols-5 gap-2">
+                                    <button
+                                        class="h-10 rounded-lg border border-[#e0cedb] text-sm font-medium text-text-muted hover:border-primary hover:text-primary transition-colors focus:outline-none">XS</button>
+                                    <button
+                                        class="h-10 rounded-lg border border-[#e0cedb] text-sm font-medium text-text-muted hover:border-primary hover:text-primary transition-colors focus:outline-none">S</button>
+                                    <button
+                                        class="h-10 rounded-lg bg-primary border border-primary text-sm font-bold text-white shadow-md shadow-primary/20 focus:outline-none">M</button>
+                                    <button
+                                        class="h-10 rounded-lg border border-[#e0cedb] text-sm font-medium text-text-muted hover:border-primary hover:text-primary transition-colors focus:outline-none">L</button>
+                                    <button
+                                        class="h-10 rounded-lg border border-[#e0cedb] text-sm font-medium text-text-muted bg-gray-100 opacity-50 cursor-not-allowed"
+                                        disabled="">XL</button>
+                                </div>
+                                <p class="text-xs text-red-500 font-medium mt-1">¡Pocas unidades en talla M!</p>
+                            </div>
+                        </div>
+                        <!-- Actions -->
+                        <div class="flex flex-col gap-3 pt-4">
+                            <button
+                                class="w-full h-14 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold text-lg tracking-wide shadow-lg shadow-primary/30 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">shopping_bag</span>
+                                Añadir al Carrito
+                            </button>
+                            <p class="text-center text-xs text-text-muted flex items-center justify-center gap-1">
+                                <span class="material-symbols-outlined text-[16px] text-green-600">check_circle</span>
+                                Envío gratis en pedidos superiores a $150
+                            </p>
+                        </div>
+                        <!-- Accordions -->
+                        <div class="divide-y divide-[#f3e7ef] border-t border-[#f3e7ef] mt-4">
+                            <details class="group py-4 cursor-pointer">
+                                <summary
+                                    class="flex items-center justify-between font-bold text-text-main dark:text-white list-none">
+                                    <span>Descripción y Detalles</span>
+                                    <span
+                                        class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="pt-3 text-sm text-text-main/70 dark:text-white/70 leading-relaxed space-y-2">
+                                    <p>Reimaginando el sastre clásico para el armario moderno. Este blazer cuenta con
+                                        hombros caídos sutilmente y un corte recto que favorece a todas las figuras.</p>
+                                    <ul class="list-disc pl-4 space-y-1">
+                                        <li>Composición: 70% Lana, 30% Poliéster reciclado.</li>
+                                        <li>Forro completo de viscosa.</li>
+                                        <li>Botones de efecto carey.</li>
+                                        <li>Diseñado en Madrid.</li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details class="group py-4 cursor-pointer">
+                                <summary
+                                    class="flex items-center justify-between font-bold text-text-main dark:text-white list-none">
+                                    <span>Envíos y Devoluciones</span>
+                                    <span
+                                        class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div class="pt-3 text-sm text-text-main/70 dark:text-white/70 leading-relaxed">
+                                    <p class="mb-2">Envío estándar (3-5 días laborables): $5.00 o GRATIS en pedidos
+                                        +$150.
+                                    </p>
+                                    <p>Aceptamos devoluciones de artículos no usados dentro de los 30 días posteriores a
+                                        la
+                                        entrega. La etiqueta de devolución viene incluida en la caja.</p>
+                                </div>
+                            </details>
+                            <details class="group py-4 cursor-pointer">
+                                <summary
+                                    class="flex items-center justify-between font-bold text-text-main dark:text-white list-none">
+                                    <span>Cuidados</span>
+                                    <span
+                                        class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div class="pt-3 text-sm text-text-main/70 dark:text-white/70 leading-relaxed">
+                                    <p>Limpieza en seco profesional solamente. Planchar a baja temperatura si es
+                                        necesario.
+                                    </p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Related Products / Complete the Look -->
+            <div class="mt-32 border-t border-[#f3e7ef] pt-16">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-2xl font-bold text-text-main dark:text-white">Completa el Look</h3>
+                    <a class="text-sm font-bold text-primary hover:underline underline-offset-4" href="#">Ver todo</a>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Related Item 1 -->
+                    <a class="group flex flex-col gap-3" href="#">
+                        <div class="w-full aspect-[3/4] bg-[#f0f0f0] rounded-lg overflow-hidden relative">
+                            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Zapatos oxford de cuero negro minimalistas"
+                                style="background-image: url('images/related_oxford.jpg');">
+                            </div>
+                            <button
+                                class="absolute bottom-3 right-3 bg-white p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 text-text-main hover:text-primary">
+                                <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-medium text-text-main dark:text-white">Oxford Clásico</span>
+                            <span class="text-sm text-text-muted">$89.00</span>
+                        </div>
+                    </a>
+                    <!-- Related Item 2 -->
+                    <a class="group flex flex-col gap-3" href="#">
+                        <div class="w-full aspect-[3/4] bg-[#f0f0f0] rounded-lg overflow-hidden relative">
+                            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Camiseta blanca básica de algodón de alta calidad"
+                                style="background-image: url('images/related_tee.jpg');">
+                            </div>
+                            <button
+                                class="absolute bottom-3 right-3 bg-white p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 text-text-main hover:text-primary">
+                                <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-medium text-text-main dark:text-white">Camiseta Básica
+                                Premium</span>
+                            <span class="text-sm text-text-muted">$35.00</span>
+                        </div>
+                    </a>
+                    <!-- Related Item 3 -->
+                    <a class="group flex flex-col gap-3" href="#">
+                        <div class="w-full aspect-[3/4] bg-[#f0f0f0] rounded-lg overflow-hidden relative">
+                            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Pantalones de vestir grises slim fit"
+                                style="background-image: url('images/related_pants.jpg');">
+                            </div>
+                            <button
+                                class="absolute bottom-3 right-3 bg-white p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 text-text-main hover:text-primary">
+                                <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-medium text-text-main dark:text-white">Pantalón de Vestir</span>
+                            <span class="text-sm text-text-muted">$75.00</span>
+                        </div>
+                    </a>
+                    <!-- Related Item 4 -->
+                    <a class="group flex flex-col gap-3" href="#">
+                        <div class="w-full aspect-[3/4] bg-[#f0f0f0] rounded-lg overflow-hidden relative">
+                            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Bufanda de cachemira gris doblada"
+                                style="background-image: url('images/related_scarf.jpg');">
+                            </div>
+                            <button
+                                class="absolute bottom-3 right-3 bg-white p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 text-text-main hover:text-primary">
+                                <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-medium text-text-main dark:text-white">Bufanda Cachemira</span>
+                            <span class="text-sm text-text-muted">$45.00</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

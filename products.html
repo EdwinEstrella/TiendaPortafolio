@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MODA - Colección</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec13a4",
+                        "background-light": "#f8f6f7",
+                        "background-dark": "#22101c",
+                        "text-main": "#1b0d17",
+                        "text-muted": "#9a4c80",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased selection:bg-primary selection:text-white flex flex-col min-h-screen">
+
+    <!-- Top Navigation Bar (Desktop) -->
+    <nav
+        class="hidden md:flex sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e5e5] dark:border-[#3a1d30]">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between w-full">
+            <!-- Left Side: Logo & Menu -->
+            <div class="flex items-center gap-12">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
+                    <div class="text-primary">
+                        <span class="material-symbols-outlined text-3xl">diamond</span>
+                    </div>
+                    <h1 class="text-2xl font-extrabold tracking-tight text-text-main dark:text-white">MODA</h1>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="flex items-center gap-8">
+                    <a class="text-sm font-semibold hover:text-primary transition-colors text-text-main dark:text-white"
+                        href="#">Novedades</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-text-main/80 dark:text-white/80"
+                        href="#">Hombre</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-text-main/80 dark:text-white/80"
+                        href="#">Mujer</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-text-main/80 dark:text-white/80"
+                        href="#">Accesorios</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-red-500"
+                        href="#">Rebajas</a>
+                </div>
+            </div>
+
+            <!-- Right Side: Search Bar & Icons -->
+            <div class="flex items-center gap-6">
+                <!-- Search Bar -->
+                <div
+                    class="hidden lg:flex items-center bg-gray-100 dark:bg-gray-800 rounded-full px-4 py-2 w-64 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+                    <span class="material-symbols-outlined text-text-muted text-[20px]">search</span>
+                    <input
+                        class="bg-transparent border-none text-sm text-text-main dark:text-white placeholder-text-muted focus:ring-0 w-full ml-2"
+                        placeholder="Buscar..." type="text" />
+                </div>
+
+                <!-- Icons (Cart & Profile only) -->
+                <div class="flex items-center gap-3">
+                    <button
+                        class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-[#1b0d17] dark:text-white">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        <span class="absolute top-2 right-1 flex h-2.5 w-2.5">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                        </span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center size-10 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-[#1b0d17] dark:text-white">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Header (Visible only on small screens) -->
+    <header
+        class="md:hidden sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e5e5] dark:border-[#3a1d30] px-6 h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
+            <div class="text-primary">
+                <span class="material-symbols-outlined text-3xl">diamond</span>
+            </div>
+            <h1 class="text-2xl font-extrabold tracking-tight text-text-main dark:text-white">MODA</h1>
+        </a>
+        <!-- Icons Mobile -->
+        <div class="flex items-center gap-3">
+            <button
+                class="flex items-center justify-center size-10 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-[#1b0d17] dark:text-white">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+            <button
+                class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-[#1b0d17] dark:text-white">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span class="absolute top-2 right-1 flex h-2.5 w-2.5">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                </span>
+            </button>
+            <button
+                class="flex items-center justify-center size-10 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-[#1b0d17] dark:text-white">
+                <span class="material-symbols-outlined">account_circle</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb" class="flex mb-6 text-sm text-text-muted">
+            <a class="hover:text-primary transition-colors" href="index.html">Inicio</a>
+            <span class="mx-2 text-xs opacity-50">/</span>
+            <a class="hover:text-primary transition-colors" href="#">Mujer</a>
+        </nav>
+        <!-- Page Heading & Controls -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-8 border-b border-[#f3e7ef]">
+            <div class="flex flex-col gap-2 max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-black text-text-main tracking-tight dark:text-white">Nueva
+                    Colección</h1>
+                <p class="text-text-muted text-lg font-light">Prendas minimalistas en tonos neutros con toques
+                    vibrantes para la temporada.</p>
+            </div>
+            <div class="flex items-center gap-4 shrink-0">
+                <div class="relative group">
+                    <span
+                        class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-text-muted pointer-events-none">sort</span>
+                    <select
+                        class="pl-10 pr-8 py-2.5 bg-white dark:bg-background-dark border border-[#e7cfdf] rounded-lg text-text-main dark:text-white text-sm font-medium focus:ring-1 focus:ring-primary focus:border-primary cursor-pointer hover:border-primary/50 transition-colors appearance-none min-w-[180px]">
+                        <option>Recomendados</option>
+                        <option>Precio: Menor a Mayor</option>
+                        <option>Precio: Mayor a Menor</option>
+                        <option>Más nuevos</option>
+                    </select>
+                    <span
+                        class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-text-muted text-sm pointer-events-none">expand_more</span>
+                </div>
+            </div>
+        </div>
+        <!-- Chips / Quick Filters -->
+        <div class="flex flex-wrap gap-3 mb-10">
+            <button
+                class="px-5 py-2 rounded-full bg-text-main text-white text-sm font-medium transition-transform active:scale-95 shadow-lg shadow-primary/10">Ver
+                todo</button>
+            <button
+                class="px-5 py-2 rounded-full bg-white dark:bg-background-dark border border-[#e7cfdf] text-text-main dark:text-white hover:border-primary hover:text-primary text-sm font-medium transition-colors">Abrigos</button>
+            <button
+                class="px-5 py-2 rounded-full bg-white dark:bg-background-dark border border-[#e7cfdf] text-text-main dark:text-white hover:border-primary hover:text-primary text-sm font-medium transition-colors">Pantalones</button>
+            <button
+                class="px-5 py-2 rounded-full bg-white dark:bg-background-dark border border-[#e7cfdf] text-text-main dark:text-white hover:border-primary hover:text-primary text-sm font-medium transition-colors">Camisas</button>
+            <button
+                class="px-5 py-2 rounded-full bg-white dark:bg-background-dark border border-[#e7cfdf] text-text-main dark:text-white hover:border-primary hover:text-primary text-sm font-medium transition-colors">Vestidos</button>
+            <button
+                class="px-5 py-2 rounded-full bg-white dark:bg-background-dark border border-[#e7cfdf] text-text-main dark:text-white hover:border-primary hover:text-primary text-sm font-medium transition-colors">Accesorios</button>
+        </div>
+        <!-- Main Grid Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Sidebar Filters -->
+            <aside class="hidden lg:block lg:col-span-1 space-y-8 pr-4">
+                <!-- Categories -->
+                <div>
+                    <h3 class="font-bold text-text-main dark:text-white mb-4 flex items-center justify-between">
+                        Categorías
+                        <span class="material-symbols-outlined text-sm">remove</span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <div class="relative flex items-center">
+                                    <input
+                                        class="peer h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary/20"
+                                        type="checkbox" />
+                                </div>
+                                <span
+                                    class="text-sm text-text-muted group-hover:text-primary transition-colors">Novedades
+                                    (12)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <div class="relative flex items-center">
+                                    <input
+                                        class="peer h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary/20"
+                                        type="checkbox" />
+                                </div>
+                                <span class="text-sm text-text-muted group-hover:text-primary transition-colors">Básicos
+                                    (24)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <div class="relative flex items-center">
+                                    <input
+                                        class="peer h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary/20"
+                                        type="checkbox" />
+                                </div>
+                                <span class="text-sm text-text-muted group-hover:text-primary transition-colors">Edición
+                                    Limitada
+                                    (5)</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <!-- Product Grid -->
+            <div class="col-span-1 lg:col-span-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+                    <!-- Product Card 1 -->
+                    <div class="group flex flex-col gap-3">
+                        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100">
+                            <div
+                                class="absolute top-3 left-3 z-10 bg-white/90 backdrop-blur px-2 py-1 rounded text-xs font-bold text-text-main tracking-wide uppercase">
+                                Nuevo</div>
+                            <button
+                                class="absolute top-3 right-3 z-10 bg-white p-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                            <img alt="Mujer usando un abrigo minimalista color crema"
+                                class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                src="images/products_coat.jpg" />
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <button
+                                    class="w-full bg-white text-text-main hover:bg-primary hover:text-white font-bold py-3 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                                    Añadir
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-text-main dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors cursor-pointer"
+                                onclick="window.location.href='product_details.html?id=coat'">
+                                Abrigo Lana Merino</h3>
+                            <p class="text-text-muted text-sm mt-1">Beige Natural</p>
+                            <p class="text-text-main dark:text-white font-semibold mt-2">$129.00</p>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="group flex flex-col gap-3">
+                        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100">
+                            <button
+                                class="absolute top-3 right-3 z-10 bg-white p-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                            <img alt="Chaqueta rosada moderna estilo bomber"
+                                class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                src="images/products_bomber.jpg" />
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <button
+                                    class="w-full bg-white text-text-main hover:bg-primary hover:text-white font-bold py-3 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                                    Añadir
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 onclick="window.location.href='product_details.html?id=bomber'"
+                                class="cursor-pointer text-text-main dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                Chaqueta Bomber Seda</h3>
+                            <p class="text-text-muted text-sm mt-1">Rosa Pastel</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <p class="text-primary font-bold">$89.00</p>
+                                <p class="text-gray-400 line-through text-sm">$110.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="group flex flex-col gap-3">
+                        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100">
+                            <button
+                                class="absolute top-3 right-3 z-10 bg-white p-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                            <img alt="Pantalón blanco de lino corte recto"
+                                class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                src="images/products_pants.jpg" />
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <button
+                                    class="w-full bg-white text-text-main hover:bg-primary hover:text-white font-bold py-3 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                                    Añadir
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 onclick="window.location.href='product_details.html?id=pants'"
+                                class="cursor-pointer text-text-main dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                Pantalón Lino Recto</h3>
+                            <p class="text-text-muted text-sm mt-1">Blanco Puro</p>
+                            <p class="text-text-main dark:text-white font-semibold mt-2">$75.00</p>
+                        </div>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div class="group flex flex-col gap-3">
+                        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100">
+                            <button
+                                class="absolute top-3 right-3 z-10 bg-white p-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                            <img alt="Vestido negro elegante y minimalista"
+                                class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                src="images/products_dress.jpg" />
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <button
+                                    class="w-full bg-white text-text-main hover:bg-primary hover:text-white font-bold py-3 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                                    Añadir
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 onclick="window.location.href='product_details.html?id=dress'"
+                                class="cursor-pointer text-text-main dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                Vestido Midi Noche</h3>
+                            <p class="text-text-muted text-sm mt-1">Negro Carbón</p>
+                            <p class="text-text-main dark:text-white font-semibold mt-2">$145.00</p>
+                        </div>
+                    </div>
+                    <!-- Product Card 5 -->
+                    <div class="group flex flex-col gap-3">
+                        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100">
+                            <div
+                                class="absolute top-3 left-3 z-10 bg-primary px-2 py-1 rounded text-xs font-bold text-white tracking-wide uppercase">
+                                -20%</div>
+                            <button
+                                class="absolute top-3 right-3 z-10 bg-white p-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                            <img alt="Camisa oversized con patrones abstractos suaves"
+                                class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                src="images/products_shirt.jpg" />
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <button
+                                    class="w-full bg-white text-text-main hover:bg-primary hover:text-white font-bold py-3 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                                    Añadir
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 onclick="window.location.href='product_details.html?id=shirt'"
+                                class="cursor-pointer text-text-main dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                Camisa Abstracta</h3>
+                            <p class="text-text-muted text-sm mt-1">Multicolor Pastel</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <p class="text-primary font-bold">$55.00</p>
+                                <p class="text-gray-400 line-through text-sm">$68.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 6 -->
+                    <div class="group flex flex-col gap-3">
+                        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100">
+                            <button
+                                class="absolute top-3 right-3 z-10 bg-white p-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                            <img alt="Top de punto color magenta vibrante"
+                                class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                src="images/products_top.jpg" />
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <button
+                                    class="w-full bg-white text-text-main hover:bg-primary hover:text-white font-bold py-3 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                                    Añadir
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 onclick="window.location.href='product_details.html?id=top'"
+                                class="cursor-pointer text-text-main dark:text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                Top Punto Vibrante</h3>
+                            <p class="text-text-muted text-sm mt-1">Magenta</p>
+                            <p class="text-text-main dark:text-white font-semibold mt-2">$42.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="mt-16 flex justify-center">
+                    <nav class="flex items-center gap-2">
+                        <button
+                            class="w-10 h-10 flex items-center justify-center rounded-lg border border-[#e7cfdf] text-text-muted hover:bg-primary hover:border-primary hover:text-white transition-colors disabled:opacity-50">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <button
+                            class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold shadow-md shadow-primary/20">1</button>
+                        <button
+                            class="w-10 h-10 flex items-center justify-center rounded-lg border border-[#e7cfdf] text-text-main dark:text-white hover:border-primary hover:text-primary transition-colors">2</button>
+                        <button
+                            class="w-10 h-10 flex items-center justify-center rounded-lg border border-[#e7cfdf] text-text-main dark:text-white hover:border-primary hover:text-primary transition-colors">3</button>
+                        <span class="text-text-muted px-2">...</span>
+                        <button
+                            class="w-10 h-10 flex items-center justify-center rounded-lg border border-[#e7cfdf] text-text-main dark:text-white hover:border-primary hover:text-primary transition-colors">12</button>
+                        <button
+                            class="w-10 h-10 flex items-center justify-center rounded-lg border border-[#e7cfdf] text-text-muted hover:bg-primary hover:border-primary hover:text-white transition-colors">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="bg-white dark:bg-background-dark border-t border-[#f3e7ef] dark:border-[#3a1d30] pt-16 pb-8">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="text-primary">
+                            <span class="material-symbols-outlined text-3xl icon-filled">diamond</span>
+                        </div>
+                        <h2 class="text-text-main dark:text-white text-xl font-extrabold tracking-tight">MODA</h2>
+                    </div>
+                    <p class="text-text-muted text-sm leading-relaxed">
+                        Redefiniendo el minimalismo moderno con un toque de color y elegancia atemporal.
+                    </p>
+                </div>
+                <!-- ... footer content ... -->
+                <div>
+                    <h4 class="font-bold text-text-main dark:text-white mb-4">Comprar</h4>
+                    <ul class="space-y-2 text-sm text-text-muted">
+                        <li><a class="hover:text-primary transition-colors" href="#">Novedades</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Mujer</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Hombre</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Accesorios</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-text-main dark:text-white mb-4">Ayuda</h4>
+                    <ul class="space-y-2 text-sm text-text-muted">
+                        <li><a class="hover:text-primary transition-colors" href="#">Envíos y Devoluciones</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Guía de Tallas</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contacto</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-text-main dark:text-white mb-4">Suscríbete</h4>
+                    <p class="text-xs text-text-muted mb-3">Recibe las últimas tendencias y ofertas exclusivas.</p>
+                    <div class="flex gap-2">
+                        <input
+                            class="flex-1 bg-background-light dark:bg-background-dark border border-[#e7cfdf] rounded-lg px-3 py-2 text-sm focus:ring-1 focus:ring-primary focus:border-primary"
+                            placeholder="Tu email" type="email" />
+                        <button
+                            class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">OK</button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="border-t border-[#f3e7ef] dark:border-[#3a1d30] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-text-muted">© 2024 MODA Store. Todos los derechos reservados.</p>
+                <div class="flex gap-4">
+                    <!-- Social Placeholders -->
+                    <a class="text-text-muted hover:text-primary transition-colors" href="#">Instagram</a>
+                    <a class="text-text-muted hover:text-primary transition-colors" href="#">Facebook</a>
+                    <a class="text-text-muted hover:text-primary transition-colors" href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
