@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './layouts/Layout';
+import Home from './pages/Home';
 import AdminLayout from './layouts/AdminLayout';
 import Dashboard from './pages/admin/Dashboard';
 import CreateProduct from './pages/admin/CreateProduct';
@@ -8,10 +9,10 @@ import Orders from './pages/admin/Orders';
 import Customers from './pages/admin/Customers';
 import Login from './pages/Login';
 
-// Placeholder components
-const Products = () => <div className="p-10 text-center">Products Page (Coming Soon)</div>;
-const ProductDetails = () => <div className="p-10 text-center">Product Details Page (Coming Soon)</div>;
-const Cart = () => <div className="p-10 text-center">Cart Page (Coming Soon)</div>;
+import Products from './pages/Products';
+
+import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
