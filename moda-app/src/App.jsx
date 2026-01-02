@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './layouts/Layout';
-import Home from './pages/Home';
+import AdminLayout from './layouts/AdminLayout';
+import Dashboard from './pages/admin/Dashboard';
+import CreateProduct from './pages/admin/CreateProduct';
+import Orders from './pages/admin/Orders';
+import Customers from './pages/admin/Customers';
+import Login from './pages/Login';
 
 // Placeholder components
 const Products = () => <div className="p-10 text-center">Products Page (Coming Soon)</div>;
 const ProductDetails = () => <div className="p-10 text-center">Product Details Page (Coming Soon)</div>;
 const Cart = () => <div className="p-10 text-center">Cart Page (Coming Soon)</div>;
-const Login = () => <div className="p-10 text-center">Login Page (Coming Soon)</div>;
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -31,6 +35,17 @@ function App() {
           <Route path="cart" element={<Cart />} />
         </Route>
         <Route path="/login" element={<Login />} />
+
+        {/* Admin Routes */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="create-product" element={<CreateProduct />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="customers" element={<Customers />} />
+          <Route path="products" element={<div className="p-10">Admin Products List (Coming Soon)</div>} />
+          <Route path="settings" element={<div className="p-10">Settings (Coming Soon)</div>} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
