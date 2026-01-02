@@ -3,10 +3,10 @@ version: '3.8'
 services:
   frontend:
     build:
-      context: ./moda-app
+      context: .
       dockerfile: Dockerfile
     ports:
       - "8080:80"
     volumes:
-      - ./moda-app/src:/app/src
+      - ./src:/app/src
     restart: always
